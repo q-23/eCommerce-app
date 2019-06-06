@@ -20,13 +20,10 @@
                 page: 1
             }
         },
+        //Handle initial item fetching from API
         methods: {
             fetchItems(limit = 10) {
                 this.$store.dispatch('loadData', {query: this.search, page: this.page, limit: limit});
-            },
-            searchItems(){
-                this.page = 1;
-                this.fetchItems();
             }
         },
         created(){
@@ -37,6 +34,6 @@
 
 <style scoped>
     #pagination{
-        margin-top: 30px;
+        margin: 30px;
     }
 </style>

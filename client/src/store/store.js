@@ -28,6 +28,7 @@ export const store = new Vuex.Store({
         }
     },
     actions: {
+        //Handle sending API request with few options - search query, item limit and items' page
         loadData({commit}, payload) {
             axios.get('/', {
                 params: {

@@ -40,6 +40,7 @@
         },
         computed: {
             cart(){
+                //Remodel cart obj
                 return Object.entries(this.$store.state.cart).map(e=>e[1])
             }
         }

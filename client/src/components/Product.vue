@@ -28,9 +28,11 @@
                     name="image"></slot>
             <v-card-title
                     bold
-                    class="headline">{{brand}}</v-card-title>
+                    class="headline">Brand name: {{brand}}</v-card-title>
             <v-card-title
-                    class="headline">{{name}}</v-card-title>
+                    class="headline">Product name: {{name}}</v-card-title>
+            <v-card-title
+            >Product ID: <span class="bold"> {{idNr}}</span></v-card-title>
             <v-card-text>
               <span v-html="description"></span>
             </v-card-text>
@@ -87,11 +89,15 @@
     },
     methods: {
       addToCart(){
+          //Check whether item with given ID is already in the cart
           if(this.cart.hasOwnProperty(this.idNr)) {
+            //If it is present - increase it's quantity by given amount but...
             this.$store.dispatch('addQuantity', {id: this.idNr, count: this.quantityInt});
           } else {
+            //... if it's not - add new entry to the cart object
             this.$store.dispatch('addToCart', {id: this.idNr, name: this.name, count: this.quantityInt})
           }
+          //And finally clear the input field
           this.quantity = ''
       }
     },
@@ -115,5 +121,8 @@
   }
   #texts{
     cursor: pointer;
+  }
+  .bold{
+    font-weight: bold;
   }
 </style>

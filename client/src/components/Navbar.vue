@@ -43,11 +43,12 @@
             }
         },
         methods: {
+            //Send API get request with increased limit so customer can see all results
             fetchItems(limit = 140) {
                 this.$store.dispatch('loadData', {query: this.search, page: this.page, limit: limit});
             },
+            //Handle searching - sending the request, clearing text field and finally changing the component in Vuex store
             searchItems(){
-                this.page = 1;
                 this.fetchItems();
                 this.search = '';
                 this.$store.dispatch('changeComponent', 'Return')
