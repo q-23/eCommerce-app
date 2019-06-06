@@ -1,35 +1,33 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Staples</span>
-        <span class="font-weight-light">eCommerce App</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn fab dark color="indigo">
-        <v-icon dark>shopping_cart</v-icon>
-      </v-btn>
-    </v-toolbar>
-
+    <Navbar></Navbar>
     <v-content>
-      <Product/>
+      <router-view></router-view>
+      <component v-bind:is="activeComponent"></component>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Product from './components/Product'
-import axios from 'axios'
+import Navbar from './components/Navbar'
+import Pagination from './components/Pagination'
+import Return from './components/Return'
 export default {
   name: 'App',
   components: {
-    Product
+    Navbar,
+    Pagination,
+    Return
   },
-  data () {
-    return {
-      //
+  computed: {
+    activeComponent(){
+      return this.$store.state.activeComponent
     }
   }
 
 }
 </script>
+
+<style>
+
+</style>
