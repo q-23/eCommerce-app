@@ -3,7 +3,9 @@
     <Navbar></Navbar>
     <v-content>
       <router-view></router-view>
-      <component v-bind:is="activeComponent"></component>
+      <component
+              v-bind:is="activeComponent"
+              v-if="this.route==='/'"></component>
     </v-content>
   </v-app>
 </template>
@@ -22,9 +24,11 @@ export default {
   computed: {
     activeComponent(){
       return this.$store.state.activeComponent
+    },
+    route(){
+      return this.$route.path
     }
   }
-
 }
 </script>
 

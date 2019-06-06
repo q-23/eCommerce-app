@@ -1,15 +1,25 @@
 <template>
-    <v-data-table
-            :headers="headers"
-            :items="cart"
-            class="elevation-1"
-    >
-        <template v-slot:items="props">
-            <td>{{ props.item.name }}</td>
-            <td>{{ props.item.id }}</td>
-            <td>{{ props.item.count }}</td>
-        </template>
-    </v-data-table>
+    <div>
+        <v-data-table
+                :headers="headers"
+                :items="cart"
+                class="elevation-1"
+        >
+            <template v-slot:items="props">
+                <td>{{ props.item.name }}</td>
+                <td>{{ props.item.id }}</td>
+                <td>{{ props.item.count }}</td>
+            </template>
+        </v-data-table>
+        <div id="return"
+             class="text-xs-center">
+            <v-btn
+                    round
+                    color="cyan"
+                    dark
+                    to="/">Go back to store</v-btn>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -37,5 +47,7 @@
 </script>
 
 <style scoped>
-
+    #return{
+        margin: 30px;
+    }
 </style>
