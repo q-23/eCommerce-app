@@ -92,6 +92,7 @@
           } else {
             this.$store.dispatch('addToCart', {id: this.idNr, name: this.name, count: this.quantityInt})
           }
+          this.quantity = ''
       }
     },
     computed: {

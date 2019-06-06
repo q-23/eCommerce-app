@@ -2,7 +2,11 @@
   <v-app>
     <Navbar></Navbar>
     <v-content>
+      <transition
+              mode="out-in"
+              name="fade">
       <router-view></router-view>
+      </transition>
       <component
               v-bind:is="activeComponent"
               v-if="this.route==='/'"></component>
@@ -33,5 +37,16 @@ export default {
 </script>
 
 <style>
+  .fade-enter {
+    opacity: 0;
+  }
 
+  .fade-enter-active {
+    transition: opacity .4s;
+  }
+
+  .fade-leave-active {
+    transition: opacity .4s;
+    opacity: 0;
+  }
 </style>
