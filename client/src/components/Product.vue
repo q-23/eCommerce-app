@@ -32,7 +32,8 @@
             <v-card-title
                     class="headline">Product name: {{name}}</v-card-title>
             <v-card-title
-            >Product ID: <span class="bold"> {{idNr}}</span></v-card-title>
+                    class="bold"
+            >Product ID: {{idNr}}</v-card-title>
             <v-card-text>
               <span v-html="description"></span>
             </v-card-text>
